@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://www.w3schools.com/w3css/tryw3css_templates_webpage.htm -->
+<html>
+ <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Lulu's Math</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./LuluMath_files/w3.css">
+<link rel="stylesheet" href="./LuluMath_files/w3-theme-black.css">
+<link rel="stylesheet" href="./LuluMath_files/css">
+<link rel="stylesheet" href="./LuluMath_files/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+</script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px; margin-bottom: 10px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>奥数精讲</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" data-toggle="collapse" data-target="#JJ_G1" href="#">一年级</a>
+  <ul class="collapse" id="JJ_G1"></ul>
+  <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#JJ_G2" href="#">二年级</a>
+  <ul class="collapse" id="JJ_G2"></ul>
+  <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#JJ_G3" href="#">三年级</a>
+  <ul class="collapse" id="JJ_G3"></ul>
+  <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#JJ_G4" href="#">四年级</a>
+  <ul class="collapse" id="JJ_G4"></ul>
+  <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#JJ_G5" href="#">五年级</a>
+  <ul class="collapse" id="JJ_G5"></ul>
+  <h4 class="w3-bar-item"><b>学而思思维训练</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">一年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">三年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a>
+  <h4 class="w3-bar-item"><b>高思导引</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">一年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">三年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-half w3-container">
+      <div class="w3-container" id="problemsInAChapter">
+        <h1 class="w3-text-teal">第一步</h1>
+        <p>选择章节</p>
+        <p>在左边菜单栏里选择章节</p>
+        <button id="moveButton">>></button>
+      </div>
+      <div class="w3-container">
+        <h1 class="w3-text-teal">第二步</h1>
+        <p>选择题目</p>
+        <p>按题目下方的按钮选择题目</p>
+      </div>
+      <div class="w3-container">
+        <h1 class="w3-text-teal">第三步</h1>
+        <p>打印</p>
+        <p>右侧，选好的题目下放按打印按钮</p>
+      </div>
+    </div>
+    <div class="w3-half w3-container">
+      <div class="w3-border w3-padding-large w3-padding-32 w3-center" id="destiny">
+        <!-- <p>Hello World</p> -->
+      </div>
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+    </div>
+  </div>
+
+
+<!-- END MAIN -->
+</div>
+
+<script>
+
+var JJ_G1_List = [
+{name: "第一章 速算与巧算", url: "books/aoshujingjie/grade1/ch1.html"},
+{name: "第二章 数数与计数", url: "books/aoshujingjie/grade1/ch2.html"},
+{name: "第三章 鸡兔同笼", url: "books/aoshujingjie/grade1/ch3.html"},
+]
+
+function load(url){
+  return function(){
+    $("#problemsInAChapter").load(url)
+  }
+}
+
+function createChapterInSideBar(chapter){
+  var a = $("<a/>")
+  a.text(chapter.name)
+  a.click(load(chapter.url))
+
+  var li = $("<li/>")
+  li.addClass("w3-bar-item")
+  li.addClass("w3-hover-blac")
+  li.addClass("w3-button")
+  li.append(a)
+
+  return li
+}
+
+function appendChapterListIn(ul, chapterList){
+  for (var i = 0; i < chapterList.length; i++){
+    ul.append(createChapterInSideBar(chapterList[i]))
+  }
+}
+
+
+$(function(){
+  appendChapterListIn($("#JJ_G1"), JJ_G1_List)
+})
+
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
+
+</body>
+
+</html>
