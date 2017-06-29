@@ -11,20 +11,21 @@
 <link rel="stylesheet" href="./LuluMath_files/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+img{max-width: 200px}
 </style>
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
-.en-markup-crop-options {
-    top: 18px !important;
-    left: 50% !important;
-    margin-left: -100px !important;
-    width: 200px !important;
-    border: 2px rgba(255,255,255,.38) solid !important;
-    border-radius: 4px !important;
-}
+    .en-markup-crop-options {
+        top: 18px !important;
+        left: 50% !important;
+        margin-left: -100px !important;
+        width: 200px !important;
+        border: 2px rgba(255,255,255,.38) solid !important;
+        border-radius: 4px !important;
+    }
 
-.en-markup-crop-options div div:first-of-type {
-    margin-left: 0px !important;
-}
+    .en-markup-crop-options div div:first-of-type {
+        margin-left: 0px !important;
+    }
 </style>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
@@ -85,8 +86,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <div class="w3-main" style="margin-left:250px">
 
   <div class="w3-row w3-padding-64">
-    <div class="w3-half w3-container">
-      <div class="w3-container" id="problemsInAChapter">
+    <div class="w3-half w3-container" id="problemsInAChapter">
+      <div class="w3-container">
         <h1 class="w3-text-teal">第一步</h1>
         <p>选择章节</p>
         <p>在左边菜单栏里选择章节</p>
@@ -103,12 +104,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <p>右侧，选好的题目下放按打印按钮</p>
       </div>
     </div>
-    <div class="w3-half w3-container">
-      <div class="w3-border w3-padding-large w3-padding-32 w3-center" id="destiny">
-        <!-- <p>Hello World</p> -->
-      </div>
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+
+    <div class="w3-half w3-container" id="problemsPicked">
     </div>
   </div>
 
@@ -124,16 +121,34 @@ var JJ_G1_List = [
 {name: "第三章 鸡兔同笼", url: "books/aoshujingjie/grade1/ch3.html"},
 ]
 
-function load(url){
+function loadChapterContent(url){
   return function(){
-    $("#problemsInAChapter").load(url)
+    $("#problemsInAChapter").load(url, function(){
+        var problemList = $(".problem")
+        for(var i = 0; i < problemList.length; i++){
+
+
+          (function(){
+              var problem = problemList[i]
+              var button = $("<button/>")
+              button.text(">>")
+              button.click(function(){
+                var p = problem
+                problemsPicked.append(p)
+                $(p).removeClass("problem")
+                button.hide()
+              })
+              $(problem).append(button)
+          })()
+        }      
+    })
   }
 }
 
 function createChapterInSideBar(chapter){
   var a = $("<a/>")
   a.text(chapter.name)
-  a.click(load(chapter.url))
+  a.click(loadChapterContent(chapter.url))
 
   var li = $("<li/>")
   li.addClass("w3-bar-item")

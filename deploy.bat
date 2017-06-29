@@ -1,0 +1,1 @@
+xcopy /y/s .\* ..\tomcat\apache-tomcat-7.0.78\webapps\LuluMath
