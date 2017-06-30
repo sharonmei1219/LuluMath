@@ -10,8 +10,16 @@
 <link rel="stylesheet" href="./LuluMath_files/css">
 <link rel="stylesheet" href="./LuluMath_files/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-img{max-width: 200px}
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    img{max-width: 200px}
+    img.wideImage{max-width: 350px;
+    display: block;}
+    .problem, .picked-problem{margin-bottom: 70px}
+    button{display: block;}
+    @media print{
+      #problemsInAChapter, #printButton{display: none}
+      .picked-problem{margin-bottom: 300px}
+    }
 </style>
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
     .en-markup-crop-options {
@@ -91,7 +99,6 @@ img{max-width: 200px}
         <h1 class="w3-text-teal">第一步</h1>
         <p>选择章节</p>
         <p>在左边菜单栏里选择章节</p>
-        <button id="moveButton">>></button>
       </div>
       <div class="w3-container">
         <h1 class="w3-text-teal">第二步</h1>
@@ -105,7 +112,9 @@ img{max-width: 200px}
       </div>
     </div>
 
-    <div class="w3-half w3-container" id="problemsPicked">
+    <div class="w3-half w3-container">
+      <div id="problemsPicked"></div>
+      <button id="printButton">print</button>
     </div>
   </div>
 
@@ -119,6 +128,14 @@ var JJ_G1_List = [
 {name: "第一章 速算与巧算", url: "books/aoshujingjie/grade1/ch1.html"},
 {name: "第二章 数数与计数", url: "books/aoshujingjie/grade1/ch2.html"},
 {name: "第三章 鸡兔同笼", url: "books/aoshujingjie/grade1/ch3.html"},
+]
+
+var JJ_G3_List = [
+{name: "18 盈亏问题", url: "books/aoshujingjie/grade3/ch18.html"},
+]
+
+var JJ_G4_List = [
+{name: "19 加法原理和乘法原理", url: "books/aoshujingjie/grade4/ch19.html"},
 ]
 
 function loadChapterContent(url){
@@ -136,6 +153,7 @@ function loadChapterContent(url){
                 var p = problem
                 problemsPicked.append(p)
                 $(p).removeClass("problem")
+                $(p).addClass("picked-problem")
                 button.hide()
               })
               $(problem).append(button)
@@ -168,6 +186,9 @@ function appendChapterListIn(ul, chapterList){
 
 $(function(){
   appendChapterListIn($("#JJ_G1"), JJ_G1_List)
+  appendChapterListIn($("#JJ_G3"), JJ_G3_List)
+  appendChapterListIn($("#JJ_G4"), JJ_G4_List)
+  $("#printButton").click(function(){window.print()})
 })
 
 // Get the Sidebar
