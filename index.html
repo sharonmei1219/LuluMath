@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./LuluMath_files/w3-theme-black.css">
 <link rel="stylesheet" href="./LuluMath_files/css">
 <link rel="stylesheet" href="./LuluMath_files/font-awesome.min.css">
+<script src="https://use.fontawesome.com/0a3c6e242d.js"></script>
 <style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     img{max-width: 200px}
@@ -127,8 +128,15 @@ var JJ_G1_List = [
 {name: "第三章 鸡兔同笼", url: "books/aoshujingjie/grade1/ch3.html"},
 ]
 
+var JJ_G2_List = [
+{name: "2 等式加减法", url: "books/aoshujingjie/grade2/ch2.html"},
+{name: "11 年龄问题", url: "books/aoshujingjie/grade2/ch11.html"},
+]
+
 var JJ_G3_List = [
 {name: "2 平均数", url: "books/aoshujingjie/grade3/ch2.html"},
+{name: "6 年龄问题", url: "books/aoshujingjie/grade3/ch6.html"},
+{name: "14 巧求周长", url: "books/aoshujingjie/grade3/ch14.html"},
 {name: "18 盈亏问题", url: "books/aoshujingjie/grade3/ch18.html"},
 ]
 
@@ -184,6 +192,7 @@ function appendChapterListIn(ul, chapterList){
 
 $(function(){
   appendChapterListIn($("#JJ_G1"), JJ_G1_List)
+  appendChapterListIn($("#JJ_G2"), JJ_G2_List)
   appendChapterListIn($("#JJ_G3"), JJ_G3_List)
   appendChapterListIn($("#JJ_G4"), JJ_G4_List)
   $("#printButton").click(function(){window.print()})
