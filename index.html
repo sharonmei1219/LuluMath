@@ -15,7 +15,8 @@
     img{max-width: 200px}
     img.wideImage{max-width: 350px;
     display: block;}
-    .problem, .picked-problem{margin-bottom: 70px}
+    .problem, .picked-problem{margin-bottom: 100px}
+    .description-sub{margin-bottom: 100px}
     button{display: block;}
     @media print{
       #problemsInAChapter, #printButton{display: none}
@@ -74,6 +75,11 @@
   <ul class="collapse" id="JJ_G4"></ul>
   <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#JJ_G5" href="#">五年级</a>
   <ul class="collapse" id="JJ_G5"></ul>
+
+  <h4 class="w3-bar-item"><b>学而思提高班</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black"  data-toggle="collapse" data-target="#XUEERSITIGAO_G3" href="#">三年级</a>
+  <ul class="collapse" id="XUEERSITIGAO_G3"></ul>
+
   <h4 class="w3-bar-item"><b>学而思思维训练</b></h4>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">一年级</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a>
@@ -121,6 +127,11 @@
 </div>
 
 <script>
+
+var XUEERSITIGAO_G3_List = [
+  {name: "暑假 1：枚举", url: "books/xueersiMath/grade3/shu1.html"},
+  {name: "暑假 2：巧算", url: "books/xueersiMath/grade3/shu2.html"},
+]
 
 var JJ_G1_List = [
 {name: "第一章 速算与巧算", url: "books/aoshujingjie/grade1/ch1.html"},
@@ -202,6 +213,7 @@ $(function(){
   appendChapterListIn($("#JJ_G2"), JJ_G2_List)
   appendChapterListIn($("#JJ_G3"), JJ_G3_List)
   appendChapterListIn($("#JJ_G4"), JJ_G4_List)
+  appendChapterListIn($("#XUEERSITIGAO_G3"), XUEERSITIGAO_G3_List)
   $("#printButton").click(function(){window.print()})
 })
 
