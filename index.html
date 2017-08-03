@@ -162,6 +162,10 @@ var JJ_G4_List = [
 {name: "19 加法原理和乘法原理", url: "books/aoshujingjie/grade4/ch19.html"},
 ]
 
+var JJ_G5_List = [
+{name: "4 平均数", url: "books/aoshujingjie/grade5/ch4.html"}
+]
+
 function loadChapterContent(url){
   return function(){
     $("#problemsInAChapter").load(url, function(){
@@ -213,6 +217,7 @@ $(function(){
   appendChapterListIn($("#JJ_G2"), JJ_G2_List)
   appendChapterListIn($("#JJ_G3"), JJ_G3_List)
   appendChapterListIn($("#JJ_G4"), JJ_G4_List)
+  appendChapterListIn($("#JJ_G5"), JJ_G5_List)
   appendChapterListIn($("#XUEERSITIGAO_G3"), XUEERSITIGAO_G3_List)
   $("#printButton").click(function(){window.print()})
 })
