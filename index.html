@@ -150,6 +150,7 @@ var JJ_G3_List = [
 {name: "4 植树问题", url: "books/aoshujingjie/grade3/ch4.html"},
 {name: "5 方阵问题", url: "books/aoshujingjie/grade3/ch5.html"},
 {name: "6 年龄问题", url: "books/aoshujingjie/grade3/ch6.html"},
+{name: "7 消元问题", url: "books/aoshujingjie/grade3/ch7.html"},
 {name: "14 巧求周长", url: "books/aoshujingjie/grade3/ch14.html"},
 {name: "18 盈亏问题", url: "books/aoshujingjie/grade3/ch18.html"},
 ]
@@ -159,6 +160,10 @@ var JJ_G4_List = [
 {name: "3 差倍问题", url: "books/aoshujingjie/grade4/ch3.html"},
 {name: "4 和差问题", url: "books/aoshujingjie/grade4/ch4.html"},
 {name: "19 加法原理和乘法原理", url: "books/aoshujingjie/grade4/ch19.html"},
+]
+
+var JJ_G5_List = [
+{name: "4 平均数", url: "books/aoshujingjie/grade5/ch4.html"}
 ]
 
 function loadChapterContent(url){
@@ -212,6 +217,7 @@ $(function(){
   appendChapterListIn($("#JJ_G2"), JJ_G2_List)
   appendChapterListIn($("#JJ_G3"), JJ_G3_List)
   appendChapterListIn($("#JJ_G4"), JJ_G4_List)
+  appendChapterListIn($("#JJ_G5"), JJ_G5_List)
   appendChapterListIn($("#XUEERSITIGAO_G3"), XUEERSITIGAO_G3_List)
   $("#printButton").click(function(){window.print()})
 })
