@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+      #gameZone{
+        background: black;
+        height: 600px;
+        position: relative;
+      }
+      .object{
+        color: white;
+        font-size: 20px
+      }
+
+      .object typed{
+        color: green;
+      }
+    </style>
+</head>
+
+<body>
+	<h1> This is a Heading</h1>
+	<p> This is a paragraph</p>
+  <div class="row">
+    <div id = "controlZone" class="col-lg-2">
+    </div>
+    <div id="gameZone" class="col-lg-8" >
+      <!-- <p id="candidateList" class="object"></p> -->
+    </div>
+
+  </div>
+
+</body>
+
+    <script   src="https://code.jquery.com/jquery-2.2.0.min.js"   integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.min.js" integrity="sha256-mFypf4R+nyQVTrc8dBd0DKddGB5AedThU73sLmLWdc0=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function CandidateList(){
+          var candidateList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+
+          this.get = function(self){
+            rand = getRandomInt(0, candidateList.length - 1)
+            candidate = candidateList[rand]
+            candidateList.splice(rand, 1)
+            return candidate
+          }
+
+          this.restore = function(charactor){
+            candidateList.push(charactor)
+          }
+        }
+
+        function TargetList(){
+          var targetList = []
+
+          this.findCharactor = function(inputCharactor){
+            for(var i = 0; i < targetList.length; i++){
+              if (targetList[i].match(inputCharactor)){
+                return targetList[i]
+              }
+              return undefined
+            }
+          }
+
+          this.append 
+        }
+
+        function Annimator(){
+            var zone = $("#gameZone")
+            this.add = function(element, doneFunction){
+              element.css({top:0, left: getRandomInt(0, zone.width()), position: 'absolute'})
+              zone.append(element)
+              element.animate({ "top": "+=580px" }, 6000, "linear", doneFunction);
+            }
+
+        }
+        
+        var cl = new CandidateList()
+        var tl = []
+        var ann = new Annimator()
+
+
+        function addCharactorInScreen(){
+          var charactor = cl.get()
+          var target = {"charactor": charactor,
+                        "element": $('<p class="object">' + charactor + '</p>')}
+
+          tl.push(target)
+
+          function createDone(target){
+            return function(){
+              var index = tl.indexOf(target)
+              tl.splice(index, 1)
+              cl.restore(target.charactor)
+              target.element.remove()
+            }
+          }
+
+          ann.add(target.element, createDone(target))
+        }
+
+        function keyIn(charactor){
+            function match(target){
+                return target.charactor == charactor
+            }
+
+            var matchedTarget = tl.find(match)
+            if (matchedTarget == undefined){
+              return
+            }
+
+            matchedTarget.element.stop()
+            matchedTarget.element.effect("explode", {pieces: 4}, "slow")
+            matchedTarget.element.remove()
+
+            var index = tl.indexOf(matchedTarget)
+            tl.splice(index, 1)
+            cl.restore(matchedTarget.charactor)
+          }
+      $(document).keypress(function(e){
+        var inputCharactor =  String.fromCharCode(e.keyCode)
+        keyIn(inputCharactor)
+      })
+      setInterval(addCharactorInScreen, 1000)
+
+    </script>
+</html>
