@@ -16,10 +16,14 @@
     img.wideImage{max-width: 350px;
     display: block;}
     .problem, .picked-problem{margin-bottom: 100px}
+    .picked-problem.problem-min-margin{margin-bottom: 0px;}
+    .description-inline{margin-bottom: 100px; display: inline-block; margin-right: 100px}
     button{display: block;}
     @media print{
       #problemsInAChapter, #printButton, .w3-top{display: none}
       .picked-problem, .description-sub{margin-bottom: 300px}
+      .description-min-sub{margin-bottom: 100px}
+      .picked-problem.problem-min-margin{margin-bottom: 0px;}
     }
     .overline{
         /*text-decoration-style: wavy;*/
@@ -88,12 +92,13 @@
   <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">三年级</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a> -->
   <h4 class="w3-bar-item"><b>高思导引</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">一年级</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">三年级</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
+<!--   <a class="w3-bar-item w3-button w3-hover-black" href="#">一年级</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a> -->
+  <a class="w3-bar-item w3-button w3-hover-black" data-toggle="collapse" data-target="#GSDY_G3" href="#">三年级</a>
+  <ul class="collapse" id="GSDY_G3"></ul>
+<!--   <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a> -->
 </nav>
 
@@ -130,6 +135,10 @@
 </div>
 
 <script>
+
+var GSDY_G3_List = [
+  {name: "第一讲 四则运算", url: "books/gaosidaoyin/grade3/ch1.html"}
+]
 
 var XUEERSITIGAO_G3_List = [
   {name: "暑假 1：枚举", url: "books/xueersiMath/grade3/shu1.html"},
@@ -249,6 +258,7 @@ $(function(){
   appendChapterListIn($("#JJ_G4"), JJ_G4_List)
   appendChapterListIn($("#JJ_G5"), JJ_G5_List)
   appendChapterListIn($("#XUEERSITIGAO_G3"), XUEERSITIGAO_G3_List)
+  appendChapterListIn($("#GSDY_G3"), GSDY_G3_List)
   $("#printButton").click(function(){window.print()})
 })
 
