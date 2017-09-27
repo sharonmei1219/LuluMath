@@ -98,6 +98,8 @@
   <a class="w3-bar-item w3-button w3-hover-black" href="#">二年级</a> -->
   <a class="w3-bar-item w3-button w3-hover-black" data-toggle="collapse" data-target="#GSDY_G3" href="#">三年级</a>
   <ul class="collapse" id="GSDY_G3"></ul>
+  <a class="w3-bar-item w3-button w3-hover-black" data-toggle="collapse" data-target="#GSDY_G4" href="#">四年级</a>
+  <ul class="collapse" id="GSDY_G4"></ul>
 <!--   <a class="w3-bar-item w3-button w3-hover-black" href="#">四年级</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">五年级</a> -->
 </nav>
@@ -147,6 +149,9 @@ var GSDY_G3_List = [
   {name: "18 四则运算三", url: "books/gaosidaoyin/grade3/ch18.html"},
 ]
 
+var GSDY_G4_List = [
+  {name: "4 几何图形的剪拼", url: "books/gaosidaoyin/grade4/ch4.html"},
+]
 var XUEERSITIGAO_G3_List = [
   {name: "暑假 1：枚举", url: "books/xueersiMath/grade3/shu1.html"},
   {name: "暑假 2：巧算", url: "books/xueersiMath/grade3/shu2.html"},
@@ -266,6 +271,7 @@ $(function(){
   appendChapterListIn($("#JJ_G5"), JJ_G5_List)
   appendChapterListIn($("#XUEERSITIGAO_G3"), XUEERSITIGAO_G3_List)
   appendChapterListIn($("#GSDY_G3"), GSDY_G3_List)
+  appendChapterListIn($("#GSDY_G4"), GSDY_G4_List)
   $("#printButton").click(function(){window.print()})
 })
 
