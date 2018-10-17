@@ -47,6 +47,6 @@ def splitCh(chapterFileName):
 				outputStrs.append(formatProblem(problem, tag, problemCount))
 			problemCount += 1
 	# return outputStrs.join('\n')
-	return '\n'.join(outputStrs)
+	return '<div class="problem-set">' + '\n'.join(outputStrs) + '</div>'
 
 # print splitCh('sharon/ch1.txt')
