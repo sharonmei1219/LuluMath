@@ -2,14 +2,6 @@
 # -*- coding: UTF-8 -*-
 import re
 
-def showOutput(output):
-	print('\n-----------' + '兴趣篇' + '================ \n')
-	print(output['兴趣篇'])
-	print('\n-----------' + '拓展篇' + '================ \n')
-	print(output['拓展篇'])
-	print('\n-----------' + '超越篇' + '================ \n')
-	print(output['超越篇'])
-
 def splitChapterInCatagory(chapter):
 	tag = 'init'
 	output = {}
@@ -42,14 +34,17 @@ def formatProblem(problem, tag, number):
 
 
 def splitCh(chapterFileName):
-	output = splitChapterInCatagory(chapterFileName)
+	categories = splitChapterInCatagory(chapterFileName)
 	tags = ['兴趣篇','拓展篇','超越篇']
+	outputStrs = []
 
 	for tag in tags:
 		problemCount = 0
-		problems = re.split('^[0-9]*\. ', output[tag], flags=re.MULTILINE)
+		problems = re.split('^[0-9]*\. ', categories[tag], flags=re.MULTILINE)
 		for problem in problems:
 			problemCount += 1
-			print formatProblem(problem, tag, problemCount)	
+			outputStrs.append(formatProblem(problem, tag, problemCount))
+			# print formatProblem(problem, tag, problemCount)	
+	return outputStrs
 
-# splitCh('ch1.txt')
+# print splitCh('ch1.txt')

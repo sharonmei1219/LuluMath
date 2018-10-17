@@ -1,15 +1,23 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import re
+import os
 
-def splitFile(fileName):
+def splitFile(fileName, toDir=''):
 
 	chapterName = "initChapter.txt"
 	chCount = 0
 	outPutChFileNames = []
+	if toDir != '':
+		if not os.path.exists('./' + toDir):
+			os.mkdir('./' + toDir, 0755);
+		if not toDir.endswith('/'):
+			toDir = toDir + '/'
+			print toDir
+
 	with open(fileName, 'r')  as fs:
 		while chapterName is not None:
-			chName = 'ch' + str(chCount) + '.txt'
+			chName = toDir + 'ch' + str(chCount) + '.txt'
 			with open(chName, 'w') as newChapter: 
 				line = fs.readline()
 				match = re.search(r"(?P<pre>.*?)(?P<chapterName>第[0-9]+讲)(?P<after>.*)", line)
@@ -25,5 +33,5 @@ def splitFile(fileName):
 					chapterName = None
 	return outPutChFileNames
 
-# print splitFile('Gaosi.txt')
+# print splitFile('Gaosi.txt', 'sharon')
 
