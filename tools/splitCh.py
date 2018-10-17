@@ -20,7 +20,7 @@ def splitChapterInCatagory(chapter):
 
 
 def formatProblem(problem, tag, number):
-	patternPre = '<div class="problem problem-min-margin" id="gaosidaoyin.grade3.ch1.A2">\n\
+	patternPre = '<div class="problem problem" id="gaosidaoyin.grade3.ch1.A2">\n\
 	<h4 class="sequence">{tag} {number}</h4>\n'
 	patterProblem = '\t<p class="description">{problem}</p>\n'
 	patternPost = '</div>'
@@ -39,12 +39,14 @@ def splitCh(chapterFileName):
 	outputStrs = []
 
 	for tag in tags:
+		if tag not in categories: break
 		problemCount = 0
-		problems = re.split('^[0-9]*\. ', categories[tag], flags=re.MULTILINE)
+		problems = re.split('^[0-9]*\. *|^[0-9]*．', categories[tag], flags=re.MULTILINE)
 		for problem in problems:
+			if problem != '':
+				outputStrs.append(formatProblem(problem, tag, problemCount))
 			problemCount += 1
-			outputStrs.append(formatProblem(problem, tag, problemCount))
-			# print formatProblem(problem, tag, problemCount)	
-	return outputStrs
+	# return outputStrs.join('\n')
+	return '\n'.join(outputStrs)
 
-# print splitCh('ch1.txt')
+# print splitCh('sharon/ch1.txt')
