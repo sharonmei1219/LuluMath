@@ -33,7 +33,7 @@ def formatProblem(problem, tag, number):
 	patterProblem = '\t<p class="description">{problem}</p>\n'
 	patternPost = '</div>'
 
-	output = patternPre.format(tag=tag, number=problemCount)
+	output = patternPre.format(tag=tag, number=number)
 	for line in re.split('\n', problem):
 		if len(line.strip()) != 0:
 			output = output + patterProblem.format(problem=line)
@@ -41,13 +41,15 @@ def formatProblem(problem, tag, number):
 	return output
 
 
+def splitCh(chapterFileName):
+	output = splitChapterInCatagory(chapterFileName)
+	tags = ['兴趣篇','拓展篇','超越篇']
 
-output = splitChapterInCatagory('ch1.txt')
-tags = ['兴趣篇','拓展篇','超越篇']
+	for tag in tags:
+		problemCount = 0
+		problems = re.split('^[0-9]*\. ', output[tag], flags=re.MULTILINE)
+		for problem in problems:
+			problemCount += 1
+			print formatProblem(problem, tag, problemCount)	
 
-for tag in tags:
-	problemCount = 0
-	problems = re.split('^[0-9]*\. ', output[tag], flags=re.MULTILINE)
-	for problem in problems:
-		problemCount += 1
-		print formatProblem(problem, tag, problemCount)	
+# splitCh('ch1.txt')
