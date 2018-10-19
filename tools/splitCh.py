@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 import re
 
+
 def splitChapterInCatagory(chapter):
 	tag = 'init'
 	output = {}
@@ -19,13 +20,17 @@ def splitChapterInCatagory(chapter):
 	return output
 
 
-def formatProblem(problem, tag, number):
-	patternPre = '<div class="problem problem" id="gaosidaoyin.grade3.ch1.A2">\n\
+
+def formatProblem(problem, tag, number, chapterName):
+	tags = {'兴趣篇': 'A',
+			'拓展篇': 'B',
+			'超越篇': 'C'}
+	patternPre = '<div class="problem problem" id="gaosidaoyin.{chapterName}.{tagRank}{number}">\n\
 	<h4 class="sequence">{tag} {number}</h4>\n'
 	patterProblem = '\t<p class="description">{problem}</p>\n'
 	patternPost = '</div>'
 
-	output = patternPre.format(tag=tag, number=number)
+	output = patternPre.format(tag=tag, number=number, tagRank=tags[tag], chapterName=chapterName.replace('/','.'))
 	for line in re.split('\n', problem):
 		if len(line.strip()) != 0:
 			output = output + patterProblem.format(problem=line)
@@ -44,9 +49,9 @@ def splitCh(chapterFileName):
 		problems = re.split('^[0-9]*\. *|^[0-9]*．', categories[tag], flags=re.MULTILINE)
 		for problem in problems:
 			if problem != '':
-				outputStrs.append(formatProblem(problem, tag, problemCount))
+				outputStrs.append(formatProblem(problem, tag, problemCount, chapterFileName[:-4]))
 			problemCount += 1
 	# return outputStrs.join('\n')
-	return '<div class="problem-set">' + '\n'.join(outputStrs) + '</div>'
+	return '<div class="problem-set">\n' + '\n'.join(outputStrs) + '\n</div>'
 
 # print splitCh('sharon/ch1.txt')
