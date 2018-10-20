@@ -358,6 +358,7 @@ function loadChapterContent(url){
                 $(p).addClass("picked-problem")
                 button.hide()
               })
+              MathJax.Hub.Queue(['Typeset', MathJax.Hub, problem]);
               $(problem).append(button)
           })()
         }      
